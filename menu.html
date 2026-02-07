@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu | Pachamama Pure Veg Restaurant</title>
+    <meta name="description"
+        content="Explore the full menu of Pachamama Restaurant in Bhopal. Pure vegetarian North Indian, South Indian, Chinese, Italian, and fast food dishes." />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Manrope:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <style>
+        :root {
+            --bg: #fdfcf8;
+            --surface: #ffffff;
+            --surface-2: #f4f1ea;
+            --primary: #2d5a3f;
+            --primary-dark: #1b3c29;
+            --accent: #d4a373;
+            --text: #2c2926;
+            --text-light: #6e6a64;
+            --border: #e6e2d8;
+
+            --font-heading: "Playfair Display", serif;
+            --font-body: "Manrope", sans-serif;
+
+            --shadow-sm: 0 4px 12px rgba(45, 90, 63, 0.04);
+            --shadow-md: 0 12px 24px rgba(45, 90, 63, 0.08);
+            --shadow-lg: 0 24px 48px rgba(45, 90, 63, 0.12);
+
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-sm: 12px;
+
+            --transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--font-body);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-top: 0;
+        }
+
+        p {
+            margin-top: 0;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(253, 252, 248, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .nav {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            height: 48px;
+            width: 48px;
+            object-fit: contain;
+            border-radius: var(--radius-sm);
+        }
+
+        .logo span {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav a {
+            font-weight: 600;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            position: relative;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--primary);
+        }
+
+        .menu-hero {
+            text-align: center;
+            padding: 100px 24px 60px;
+            background: radial-gradient(circle at center, rgba(45, 90, 63, 0.05) 0%, transparent 70%);
+        }
+
+        .eyebrow {
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            margin: 0 auto 24px;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--primary-dark);
+            max-width: 900px;
+            line-height: 1.1;
+        }
+
+        .menu-desc {
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--text-light);
+            font-size: 1.15rem;
+        }
+
+        /* Tabs */
+        .tabs-container {
+            position: sticky;
+            top: 89px;
+            z-index: 90;
+            background: rgba(253, 252, 248, 0.95);
+            backdrop-filter: blur(12px);
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 60px;
+        }
+
+        .tabs-scroll {
+            max-width: 1280px;
+            margin: 0 auto;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding-bottom: 4px;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        .tabs-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tabs {
+            display: inline-flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .tab-btn {
+            border: none;
+            background: var(--surface);
+            color: var(--text-light);
+            padding: 12px 24px;
+            border-radius: 999px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid var(--border);
+        }
+
+        .tab-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(45, 90, 63, 0.2);
+        }
+
+        /* Grid */
+        .menu-section {
+            max-width: 1280px;
+            margin: 0 auto 100px;
+            padding: 0 24px;
+            scroll-margin-top: 180px;
+            display: none;
+        }
+
+        .menu-section.active {
+            display: block;
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 32px;
+        }
+
+        .food-card {
+            background: var(--surface);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow-sm);
+            height: 100%;
+        }
+
+        .food-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .food-img-wrap {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .food-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .food-card:hover .food-img-wrap img {
+            transform: scale(1.08);
+        }
+
+        .food-content {
+            padding: 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .food-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .food-title {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--text);
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        .food-price {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.1rem;
+            white-space: nowrap;
+        }
+
+        .food-desc {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin: 12px 0 0;
+            line-height: 1.6;
+        }
+
+        .bestseller {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: #fff;
+            color: var(--primary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 6px 12px;
+            border-radius: 999px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 2;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            background: var(--surface);
+            color: var(--primary-dark);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 40px;
+            transition: var(--transition);
+        }
+
+        .back-btn:hover {
+            background: var(--surface-2);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* Veg Icon */
+        .veg-icon {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 1px solid #2d5a3f;
+            padding: 2px;
+            margin-right: 6px;
+            position: relative;
+            top: 2px;
+        }
+
+        .veg-icon::after {
+            content: '';
+            display: block;
+            width: 8px;
+            height: 8px;
+            background: #2d5a3f;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--surface);
+            padding: 80px 24px 30px;
+            border-top: 1px solid var(--border);
+            color: var(--text-light);
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1.5fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand p {
+            margin-top: 16px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            max-width: 300px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer h4 {
+            color: var(--primary-dark);
+            font-size: 1.1rem;
+            margin-bottom: 24px;
+            font-family: var(--font-heading);
+        }
+
+        .footer ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer a {
+            color: var(--text-light);
+            transition: color 0.2s ease;
+        }
+
+        .footer a:hover {
+            color: var(--primary);
+        }
+
+        .footer-contact li {
+            display: flex;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+
+        .footer-bottom {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 900px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 32px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+            }
+        }
+
+        /* Reveal Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-100 {
+            transition-delay: 0.1s;
+        }
+
+        .delay-200 {
+            transition-delay: 0.2s;
+        }
+
+        @media (max-width: 600px) {
+            .tabs-scroll {
+                justify-content: flex-start;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .food-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tabs-container {
+                top: 70px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav">
+            <a href="Pachamama.html" class="logo">
+                <img class="logo-img" src="assest/logo.png" alt="Pachamama logo" />
+                <span>Pachamama</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="Pachamama.html">Home</a></li>
+                    <li><a href="#" class="active">Menu</a></li>
+                    <li><a href="Pachamama.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="menu-hero">
+        <span class="eyebrow">Our Menu</span>
+        <h1>Fresh, Flavourful & 100% Vegetarian</h1>
+        <p class="menu-desc">Explore our diverse menu featuring the best of North Indian, South Indian, Chinese,
+            Italian, and fast food — all purely vegetarian.</p>
+    </div>
+
+    <div class="tabs-container">
+        <div class="tabs-scroll">
+            <div class="tabs">
+                <button class="tab-btn active" onclick="showCategory('starters')">Starters</button>
+                <button class="tab-btn" onclick="showCategory('main-course')">Main Course</button>
+                <button class="tab-btn" onclick="showCategory('south-indian')">South Indian</button>
+                <button class="tab-btn" onclick="showCategory('chinese')">Chinese</button>
+                <button class="tab-btn" onclick="showCategory('beverages')">Beverages</button>
+                <button class="tab-btn" onclick="showCategory('desserts')">Desserts</button>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- Starters -->
+        <section id="starters" class="menu-section active">
+            <h2 class="section-title">Starters</h2>
+            <div class="food-grid">
+                <div class="food-card reveal">
+                    <div class="food-img-wrap">
+                        <span class="bestseller">Bestseller</span>
+                        <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=400&q=80"
+                            alt="Paneer Tikka">
+                    </div>
+                    <div class="food-content">
+                        <div class="food-header">
+                            <h3 class="food-title"><span class="veg-icon"></span> Paneer Tikka</h3>
+                            <span class="food-price">₹249</span>
+                        </div>
+                        <p class="food-desc">Marinated cottage cheese grilled in tandoor with bell peppers and onions.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="food-card reveal delay-100">
+                    <div class="food-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=400&q=80"
+                            alt="Hara Bhara Kebab">
+                    </div>
+                    <div class="food-content">
+                        <div class="food-header">
+                            <h3 class="food-title"><span class="veg-icon"></span> Hara Bhara Kebab</h3>
+                            <span class="food-price">₹199</span>
+                        </div>
+                        <p class="food-desc">Spinach and green pea patties served with mint chutney.</p>
+                    </div>
+                </div>
+
+                <div class="food-card reveal delay-200">
+                    <div class="food-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1525059696034-4967a8e1dca2?auto=format&fit=crop&w=400&q=80"
+                            alt="Veg Manchurian">
+                    </div>
+                    <div class="food-content">
+                        <div class="food-header">
+                            <h3 class="food-title"><span class="veg-icon"></span> Veg Manchurian Dry</h3>
+                            <span class="food-price">₹219</span>
+                        </div>
+                        <p class="food-desc">Crispy vegetable balls tossed in spicy Indo-Chinese sauce with garlic.</p>
+                    </div>
+                </div>
+
+                <div class="food-card reveal">
+                    <div class="food-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1626804475297-411dbe169c70?auto=format&fit=crop&w=400&q=80"
+                            alt="Crispy Corn">
+                    </div>
+                    <div class="food-content">
+                        <div class="food-header">
+                            <h3 class="food-title"><span class="veg-icon"></span> Crispy Corn</h3>
+                            <span class="food-price">₹189</span>
+                        </div>
+                        <p class="food-desc">Golden fried corn kernels with tangy seasoning and capsicum.</p>
+                    </div>
+                </div>
+
+                <div class="food-card reveal delay-100">
+                    <div class="food-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76690b67f61?auto=format&fit=crop&w=400&q=80"
+                            alt="Spring Rolls">
+                    </div>
+                    <div class="food-content">
+                        <div class="food-header">
+                            <h3 class="food-title"><span class="veg-icon"></span> Spring Rolls</h3>
+                            <span class="food-price">₹179</span>
+                        </div>
+                        <p class="food-desc">Crunchy rolls stuffed with mixed vegetables and served with sweet chilli
+                            sauce.</p>
+                    </div>
+                </div>
+
+                <div class="food-card reveal delay-200">
+                    <div class="food-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1626132647523-66f5bf380027?auto=format&fit=crop&w=400&q=80"
+                            alt="Aloo Tikki">
+                    </div>
+                    <div class="food-content">
+                        <div class="food-header">
+                            <h3 class="food-title"><span class="veg-icon"></span> Aloo Tikki Chaat</h3>
+                            <span class="food-price">₹149</span>
+                        </div>
+                        <p class="food-desc">Crispy potato patties topped with chutneys, yoghurt, and sev.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Course -->
+        <section id="main-course" class="menu-section">
+            <h2 class="section-title">Main Course</h2>
+            <div class="food-grid">
+                <div class="food-card reveal">
+                    <div class="food-img-wrap">
+                        <span class="bestseller">Must Try</span>
+                        <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=400&q=80"
+                            alt="Paneer Butter Masala">
+                    </div>
+                    <div class="food-content">
+                        <div class="food-header">
+                            <h3 class="food-title"><span class="veg-icon"></span> Paneer Butter Masala</h3>
+                            <span class="food-price">₹289</span>
+                        </div>
+                        <p class="food-desc">Cottage cheese cubes simmered in a rich, creamy tomato gravy.</p>
+                    </div>
+                </div>
+
+                <div class="food-card reveal delay-100">
+                    <div class="food-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=400&q=80"
+                            alt="Dal Makhani">
+                    </div>
+                    <div class="food-content">
+                        <div class="food-header">
+                            <h3 class="food-title"><span class="veg-icon"></span> Dal Makhani</h3>
+                            <span class="food-price">₹249</span>
+                        </div>
+                        <p class="food-desc">Black lentils slow-cooked overnight with butter and cream.</p>
+                    </div>
+                </div>
+
+                <div class="food-card reveal delay-200">
+                    <div class="food-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1585937421612-70a008356f36?auto=format&fit=crop&w=400&q=80"
+                            alt="Malai Kofta">
+                    </div>
+                    <div class="food-content">
+                        <div class="food-header">
+                            <h3 class="food-title"><span class="veg-icon"></span> Malai Kofta</h3>
+                            <span class="food-price">₹299</span>
+                        </div>
+                        <p class="food-desc">Soft dumpling of potato and paneer in a sweet and spicy cashew gravy.</p>
+                    </div>
+                </div>
+
+                <div class="food-card reveal">
+                    <div class="food-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=400&q=80"
+                            alt="Kadhai Paneer">
+                    </div>
+                    <div class="food-content">
+                        <div class="food-header">
+                            <h3 class="food-title"><span class="veg-icon"></span> Kadhai Paneer</h3>
+                            <span class="food-price">₹279</span>
+                        </div>
+                        <p class="food-desc">Paneer cooked with bell peppers and freshly ground spices.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- South Indian -->
+        <section id="south-indian" class="menu-section">
+            <h2 class="section-title">South Indian</h2>
+            <div class="food-grid">
+                <div class="food-card reveal">
+                    <div class="food-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1668236543090-d2f896953ed9?auto=format&fit=crop&w=400&q=80"
+                            alt="Masala Dosa">
+                    </div>
+                    <div class="food-content">
+                        <div class="food-header">
+                            <h3 class="food-title"><span class="veg-icon"></span> Masala Dosa</h3>
+                            <span class="food-price">₹169</span>
+                        </div>
+                        <p class="food-desc">Crispy rice crepe filled with spiced potato masala, served with sambar and
+                            chutney.</p>
+                    </div>
+                </div>
+
+                <div class="food-card reveal delay-100">
+                    <div class="food-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=400&q=80"
+                            alt="Idli Sambar">
+                    </div>
+                    <div class="food-content">
+                        <div class="food-header">
+                            <h3 class="food-title"><span class="veg-icon"></span> Idli Sambar</h3>
+                            <span class="food-price">₹129</span>
+                        </div>
+                        <p class="food-desc">Steamed rice cakes served with lentil stew and coconut chutney.</p>
+                    </div>
+                </div>
+
+                <div class="food-card reveal delay-200">
+                    <div class="food-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1668236543090-d2f896953ed9?auto=format&fit=crop&w=400&q=80"
+                            alt="Onion Uttapam">
+                    </div>
+                    <div class="food-content">
+                        <div class="food-header">
+                            <h3 class="food-title"><span class="veg-icon"></span> Onion Uttapam</h3>
+                            <span class="food-price">₹159</span>
+                        </div>
+                        <p class="food-desc">Thick rice pancake topped with chopped onions and cilantro.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chinese -->
+        <section id="chinese" class="menu-section">
+            <h2 class="section-title">Chinese</h2>
+            <div class="food-grid">
+                <div class="food-card reveal">
+                    <div class="food-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1612929633738-8fe44f7d2d0c?auto=format&fit=crop&w=400&q=80"
+                            alt="Hakka Noodles">
+                    </div>
+                    <div class="food-content">
+                        <div class="food-header">
+                            <h3 class="food-title"><span class="veg-icon"></span> Veg Hakka Noodles</h3>
+                            <span class="food-price">₹189</span>
+                        </div>
+                        <p class="food-desc">Stir-fried noodles with mixed vegetables and soy sauce.</p>
+                    </div>
+                </div>
+
+                <div class="food-card reveal delay-100">
+                    <div class="food-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1603133872878-684f10842619?auto=format&fit=crop&w=400&q=80"
+                            alt="Fried Rice">
+                    </div>
+                    <div class="food-content">
+                        <div class="food-header">
+                            <h3 class="food-title"><span class="veg-icon"></span> Veg Fried Rice</h3>
+                            <span class="food-price">₹179</span>
+                        </div>
+                        <p class="food-desc">Wok-tossed rice with finely chopped veggies and mild spices.</p>
+                    </div>
+                </div>
+
+                <div class="food-card reveal delay-200">
+                    <div class="food-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1564834724105-918b73d1b9e0?auto=format&fit=crop&w=400&q=80"
+                            alt="Chilli Paneer">
+                    </div>
+                    <div class="food-content">
+                        <div class="food-header">
+                            <h3 class="food-title"><span class="veg-icon"></span> Chilli Paneer Gravy</h3>
+                            <span class="food-price">₹229</span>
+                        </div>
+                        <p class="food-desc">Paneer cubes in a spicy soya-chilli sauce with capsicum.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Beverages -->
+        <section id="beverages" class="menu-section">
+            <h2 class="section-title">Beverages</h2>
+            <div class="food-grid">
+                <div class="food-card reveal">
+                    <div class="food-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1517244683847-7456b63c5969?auto=format&fit=crop&w=400&q=80"
+                            alt="Masala Chai">
+                    </div>
+                    <div class="food-content">
+                        <div class="food-header">
+                            <h3 class="food-title"><span class="veg-icon"></span> Masala Chai</h3>
+                            <span class="food-price">₹49</span>
+                        </div>
+                        <p class="food-desc">Traditional Indian tea brewed with aromatic spices and milk.</p>
+                    </div>
+                </div>
+
+                <div class="food-card reveal delay-100">
+                    <div class="food-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1626074353765-517a681e40be?auto=format&fit=crop&w=400&q=80"
+                            alt="Sweet Lassi">
+                    </div>
+                    <div class="food-content">
+                        <div class="food-header">
+                            <h3 class="food-title"><span class="veg-icon"></span> Sweet Lassi</h3>
+                            <span class="food-price">₹79</span>
+                        </div>
+                        <p class="food-desc">Churned yoghurt drink with sugar and cardamom.</p>
+                    </div>
+                </div>
+
+                <div class="food-card reveal delay-200">
+                    <div class="food-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=400&q=80"
+                            alt="Lime Soda">
+                    </div>
+                    <div class="food-content">
+                        <div class="food-header">
+                            <h3 class="food-title"><span class="veg-icon"></span> Fresh Lime Soda</h3>
+                            <span class="food-price">₹69</span>
+                        </div>
+                        <p class="food-desc">Refreshing lemon drink, available sweet or salted.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Desserts -->
+        <section id="desserts" class="menu-section">
+            <h2 class="section-title">Desserts</h2>
+            <div class="food-grid">
+                <div class="food-card reveal">
+                    <div class="food-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1589119908995-c6837fa14848?auto=format&fit=crop&w=400&q=80"
+                            alt="Gulab Jamun">
+                    </div>
+                    <div class="food-content">
+                        <div class="food-header">
+                            <h3 class="food-title"><span class="veg-icon"></span> Gulab Jamun</h3>
+                            <span class="food-price">₹89</span>
+                        </div>
+                        <p class="food-desc">Fried milk dumplings soaked in rose-flavored sugar syrup.</p>
+                    </div>
+                </div>
+
+                <div class="food-card reveal delay-100">
+                    <div class="food-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1588269784175-534a70650993?auto=format&fit=crop&w=400&q=80"
+                            alt="Brownie">
+                    </div>
+                    <div class="food-content">
+                        <div class="food-header">
+                            <h3 class="food-title"><span class="veg-icon"></span> Sizzling Brownie</h3>
+                            <span class="food-price">₹159</span>
+                        </div>
+                        <p class="food-desc">Warm chocolate brownie with vanilla ice cream and chocolate sauce.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div style="text-align: center;">
+            <a href="Pachamama.html" class="back-btn">← Back to Home</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo footer-logo">
+                    <img class="logo-img" src="assest/logo.png" alt="Pachamama logo" />
+                    <span
+                        style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--primary); font-weight: 700;">Pachamama</span>
+                </div>
+                <p>Pure vegetarian restaurant in the heart of Bhopal, serving fresh and flavourful meals made with love
+                    since day one.</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="Pachamama.html">Home</a></li>
+                    <li><a href="Pachamama.html#about">About Us</a></li>
+                    <li><a href="#">Menu</a></li>
+                    <li><a href="Pachamama.html#gallery">Gallery</a></li>
+                    <li><a href="Pachamama.html#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <ul>
+                    <li>Maharana Pratap Nagar, Bhopal, Madhya Pradesh, India</li>
+                    <li><a href="tel:+919876543210">+91 98765 43210</a></li>
+                    <li>Mon - Sun: 11:00 AM - 10:30 PM</li>
+                </ul>
+            </div>
+
+            <div class="footer-cuisines">
+                <h4>Our Cuisines</h4>
+                <ul>
+                    <li>North Indian</li>
+                    <li>South Indian</li>
+                    <li>Chinese</li>
+                    <li>Italian</li>
+                    <li>Fast Food</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Pachamama. All rights reserved.</p>
+            <p>Pure Veg Restaurant in Bhopal, Madhya Pradesh</p>
+        </div>
+    </footer>
+
+    <script>
+        function showCategory(categoryId) {
+            // Update tabs
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+
+            // Update sections
+            document.querySelectorAll('.menu-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            const activeSection = document.getElementById(categoryId);
+            activeSection.classList.add('active');
+
+            // Trigger animations for new section elements
+            const newReveals = activeSection.querySelectorAll('.reveal');
+            newReveals.forEach(el => {
+                el.classList.remove('active');
+                // Force reflow
+                void el.offsetWidth;
+                el.classList.add('active');
+            });
+
+            // Scroll to top of section gently if needed
+            window.scrollTo({
+                top: 200,
+                behavior: 'smooth'
+            });
+        }
+
+        // Reveal on Scroll
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Trigger initial active section animation
+        document.querySelector('.menu-section.active').querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
+    </script>
+</body>
+
+</html>
