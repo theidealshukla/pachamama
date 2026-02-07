@@ -215,6 +215,17 @@
             border: 1px solid var(--border);
         }
 
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+            z-index: 101;
+            padding: 8px;
+        }
+
         .tab-btn:hover {
             border-color: var(--primary);
             color: var(--primary);
@@ -513,6 +524,67 @@
             transition-delay: 0.2s;
         }
 
+        @media (max-width: 768px) {
+            .nav ul {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: var(--surface);
+                border-bottom: 1px solid var(--border);
+                padding: 0;
+                max-height: 0;
+                overflow: hidden;
+                opacity: 0;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                box-shadow: var(--shadow-lg);
+                gap: 0;
+            }
+
+            .nav ul.show {
+                max-height: 400px;
+                opacity: 1;
+                padding: 10px 0;
+            }
+
+            .nav ul li {
+                width: 100%;
+            }
+
+            .nav ul li a {
+                display: block;
+                padding: 16px 24px;
+                border-left: 4px solid transparent;
+            }
+
+            .nav ul li a:hover,
+            .nav ul li a:active {
+                background: var(--surface-2);
+                border-left-color: var(--primary);
+                color: var(--primary);
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 44px;
+                height: 44px;
+                border-radius: 50%;
+                transition: background 0.2s;
+            }
+
+            .mobile-menu-btn:active {
+                background: var(--surface-2);
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+
         @media (max-width: 600px) {
             .tabs-scroll {
                 justify-content: flex-start;
@@ -529,6 +601,16 @@
             .tabs-container {
                 top: 70px;
             }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+            }
         }
     </style>
 </head>
@@ -536,15 +618,16 @@
 <body>
     <header>
         <div class="nav">
-            <a href="Pachamama.html" class="logo">
+            <a href="index.html" class="logo">
                 <img class="logo-img" src="assest/logo.png" alt="Pachamama logo" />
                 <span>Pachamama</span>
             </a>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
             <nav>
-                <ul>
-                    <li><a href="Pachamama.html">Home</a></li>
+                <ul id="nav-links">
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="#" class="active">Menu</a></li>
-                    <li><a href="Pachamama.html#contact">Contact</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -906,8 +989,7 @@
             </div>
         </section>
 
-        <div style="text-align: center;">
-            <a href="Pachamama.html" class="back-btn">← Back to Home</a>
+        <a href="index.html" class="back-btn">← Back to Home</a>
         </div>
     </main>
 
@@ -926,11 +1008,11 @@
             <div class="footer-links">
                 <h4>Quick Links</h4>
                 <ul>
-                    <li><a href="Pachamama.html">Home</a></li>
-                    <li><a href="Pachamama.html#about">About Us</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
                     <li><a href="#">Menu</a></li>
-                    <li><a href="Pachamama.html#gallery">Gallery</a></li>
-                    <li><a href="Pachamama.html#contact">Contact</a></li>
+                    <li><a href="index.html#gallery">Gallery</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
                 </ul>
             </div>
 
@@ -962,6 +1044,16 @@
     </footer>
 
     <script>
+        // Mobile Menu Toggle
+        const mobileBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.getElementById('nav-links');
+
+        if (mobileBtn && navLinks) {
+            mobileBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('show');
+            });
+        }
+
         function showCategory(categoryId) {
             // Update tabs
             document.querySelectorAll('.tab-btn').forEach(btn => {
