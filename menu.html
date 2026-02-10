@@ -36,6 +36,22 @@
             --transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
+        /* Dark Mode Variables */
+        body.dark-mode {
+            --bg: #121212;
+            --surface: #1e1e1e;
+            --surface-2: #2d2d2d;
+            --primary: #4ade80;
+            --primary-dark: #86efac;
+            --accent: #fdba74;
+            --text: #e2e8f0;
+            --text-light: #94a3b8;
+            --border: #333333;
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 12px 24px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 24px 48px rgba(0, 0, 0, 0.5);
+        }
+
         * {
             box-sizing: border-box;
         }
@@ -78,19 +94,31 @@
             transition: var(--transition);
         }
 
+        /* Navigation */
         header {
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(253, 252, 248, 0.85);
+            background: var(--bg);
             backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            transition: background 0.4s ease, border-color 0.4s ease;
+        }
+
+        body:not(.dark-mode) header {
+            background: rgba(253, 252, 248, 0.95);
             border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        body.dark-mode header {
+            background: rgba(18, 18, 18, 0.95);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .nav {
             max-width: 1280px;
             margin: 0 auto;
-            padding: 20px 24px;
+            padding: 10px 24px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -100,11 +128,12 @@
             display: flex;
             align-items: center;
             gap: 12px;
+            z-index: 101;
         }
 
         .logo-img {
-            height: 48px;
-            width: 48px;
+            height: 40px;
+            width: 40px;
             object-fit: contain;
             border-radius: var(--radius-sm);
         }
@@ -114,6 +143,11 @@
             font-size: 1.5rem;
             color: var(--primary);
             font-weight: 700;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
         }
 
         nav ul {
@@ -134,6 +168,79 @@
         nav a:hover,
         nav a.active {
             color: var(--primary);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after,
+        nav a.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+            z-index: 101;
+            padding: 8px;
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            border-radius: 50%;
+            margin-left: 16px;
+        }
+
+        .theme-toggle:hover {
+            background: var(--surface-2);
+            color: var(--primary);
+        }
+
+        .theme-toggle svg {
+            width: 24px;
+            height: 24px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .theme-toggle .icon-sun {
+            display: none;
+        }
+
+        .theme-toggle .icon-moon {
+            display: block;
+        }
+
+        body.dark-mode .theme-toggle .icon-sun {
+            display: block;
+        }
+
+        body.dark-mode .theme-toggle .icon-moon {
+            display: none;
         }
 
         .menu-hero {
@@ -525,11 +632,20 @@
         }
 
         @media (max-width: 768px) {
+            .nav {
+                padding: 12px 20px;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                margin-left: 12px;
+            }
+
             .nav ul {
                 display: flex;
                 flex-direction: column;
                 position: fixed;
-                top: 80px;
+                top: 70px;
                 left: 0;
                 right: 0;
                 background: var(--surface);
@@ -539,53 +655,29 @@
                 overflow: hidden;
                 opacity: 0;
                 transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-                box-shadow: var(--shadow-lg);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                z-index: 99;
                 gap: 0;
             }
 
             .nav ul.show {
-                max-height: 400px;
+                max-height: 100vh;
                 opacity: 1;
                 padding: 10px 0;
             }
 
             .nav ul li {
                 width: 100%;
+                text-align: center;
             }
 
             .nav ul li a {
                 display: block;
-                padding: 16px 24px;
-                border-left: 4px solid transparent;
+                padding: 16px;
+                font-size: 1.1rem;
+                border-left: none;
             }
 
-            .nav ul li a:hover,
-            .nav ul li a:active {
-                background: var(--surface-2);
-                border-left-color: var(--primary);
-                color: var(--primary);
-            }
-
-            .mobile-menu-btn {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 44px;
-                height: 44px;
-                border-radius: 50%;
-                transition: background 0.2s;
-            }
-
-            .mobile-menu-btn:active {
-                background: var(--surface-2);
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-        }
-
-        @media (max-width: 600px) {
             .tabs-scroll {
                 justify-content: flex-start;
             }
@@ -604,12 +696,44 @@
 
             .footer-content {
                 grid-template-columns: 1fr;
+                text-align: center;
+                gap: 32px;
+            }
+
+            .footer-logo,
+            .footer ul,
+            .footer-contact li {
+                justify-content: center;
+                text-align: center;
+            }
+
+            .footer-contact li {
+                align-items: center;
+            }
+
+            .footer-brand p {
+                margin: 16px auto 0;
             }
 
             .footer-bottom {
                 flex-direction: column;
                 text-align: center;
                 align-items: center;
+                gap: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo span {
+                display: none;
+            }
+
+            .theme-toggle {
+                margin-left: 8px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -622,13 +746,31 @@
                 <img class="logo-img" src="assest/logo.png" alt="Pachamama logo" />
                 <span>Pachamama</span>
             </a>
-            <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
             <nav>
                 <ul id="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="#" class="active">Menu</a></li>
                     <li><a href="index.html#contact">Contact</a></li>
                 </ul>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
             </nav>
         </div>
     </header>
@@ -1044,6 +1186,44 @@
     </footer>
 
     <script>
+        // Theme Toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+        const logoImg = document.querySelector('.logo-img');
+
+        // Function to update logo based on theme
+        const updateLogo = () => {
+            if (body.classList.contains('dark-mode')) {
+                logoImg.src = 'assest/dark logo.png';
+            } else {
+                logoImg.src = 'assest/logo.png';
+            }
+        };
+
+        // Check for saved preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            body.classList.add('dark-mode');
+        }
+
+        // Set initial logo
+        if (logoImg) {
+            updateLogo();
+        }
+
+        if (themeToggleBtn) {
+            themeToggleBtn.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+                const theme = body.classList.contains('dark-mode') ? 'dark' : 'light';
+                localStorage.setItem('theme', theme);
+
+                // Update logo on toggle
+                if (logoImg) {
+                    updateLogo();
+                }
+            });
+        }
+
         // Mobile Menu Toggle
         const mobileBtn = document.querySelector('.mobile-menu-btn');
         const navLinks = document.getElementById('nav-links');
@@ -1051,6 +1231,13 @@
         if (mobileBtn && navLinks) {
             mobileBtn.addEventListener('click', () => {
                 navLinks.classList.toggle('show');
+            });
+
+            // Close menu when a link is clicked
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('show');
+                });
             });
         }
 
